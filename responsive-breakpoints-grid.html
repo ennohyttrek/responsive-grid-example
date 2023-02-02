@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Layout & Breakpoints
+    </title>
+
+    <style>
+        /*RESET*/
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        img {
+            width: 100%;
+            height: auto;
+        }
+
+
+        /*INIT*/
+
+        .my-content,
+        .tablet-layout,
+        .desktop-layout {
+            display: none;
+        }
+
+
+        /*LAYOUT*/
+
+        main {
+            position: relative;
+            padding: 1em 24px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        section {
+            margin-top: 15vh;
+            position: absolute;
+            margin-right: 24px;
+        }
+
+        .control {
+            position: fixed;
+            top: 1em;
+            right: 0;
+            padding-right: 24px;
+        }
+
+
+        h2 {
+            padding-top: 1em;
+        }
+
+        h2,
+        h3,
+        p {
+            margin-bottom: 1em;
+        }
+
+
+        h2,
+        h3 {
+            column-span: all;
+        }
+
+        .grid {
+            display: flex;
+            column-gap: 16px;
+
+        }
+
+        .grid>div>div {
+            height: 100vh;
+        }
+
+        .column {
+            width: 100%;
+        }
+
+        .gallery figure {
+            margin-bottom: 1em;
+        }
+        
+        .auto-columns {
+            margin-bottom: 2em;
+            max-width: 28em;
+        }
+
+
+        /*COLOR*/
+        .column>div {
+            background: hsl(200, 42%, 89%);
+        }
+
+        section {
+            background: hsla(0, 94%, 55%, 0.2);
+        }
+
+        /*TYPOGRAPHY*/
+
+        body {
+            font-size: 21px;
+        }
+
+
+
+        /*RESPONSIVE BREAKPOINTS*/
+
+        @media only screen and (min-width: 600px) {
+
+            .tablet-layout {
+                display: block;
+            }
+
+            .mobile-layout {
+                display: none;
+            }
+
+
+
+
+
+            .gallery {
+                display: flex;
+
+                gap: 16px;
+            }
+
+
+        }
+        
+    
+        @media only screen and (min-width: 768px) {
+            
+                        .auto-columns {
+                column-count: 2;
+                                      max-width: 100%;
+            }
+            
+        }
+        
+
+        @media only screen and (min-width: 960px) {
+
+            .desktop-layout {
+                display: block;
+            }
+
+            .tablet-layout,
+            .mobile-layout {
+                display: none;
+            }
+
+            .auto-columns {
+                column-count: 3;
+            }
+
+
+
+
+        }
+    </style>
+
+</head>
+
+<body>
+
+
+    <main>
+
+        <section id="my-content" class="my-content">
+
+            <div class="auto-columns">
+                <h3>This is content</h3>
+
+                <p>
+                    Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu.
+                </p>
+                <p>
+                    In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Nullam dictum felis eu pede mollis pretium. Integer tincidunt. Cras dapibus. Vivamus elementum semper nisi. Aenean vulputate eleifend tellus. Aenean leo ligula, porttitor eu, consequat vitae, eleifend ac, enim. Aliquam lorem ante, dapibus in, viverra quis, feugiat a, tellus. Phasellus viverra nulla ut metus varius laoreet. Quisque rutrum. Aenean imperdiet. Etiam ultricies nisi vel augue. Curabitur ullamcorper ultricies nisi.
+                </p>
+                <p>
+                    Nam eget dui. Etiam rhoncus. Maecenas tempus, tellus eget condimentum rhoncus, sem quam semper libero, sit amet adipiscing sem neque sed ipsum. Nam quam nunc, blandit vel, luctus pulvinar, hendrerit id, lorem. Maecenas nec odio et ante tincidunt tempus. Do nec vitae sapien ut libero venenatis faucibus. Nullam quis ante.
+                </p>
+            </div>
+
+            <div class="gallery">
+                <figure><img src="img/architecture-1857175_1920.jpg"></figure>
+                <figure><img src="img/architecture-6517841_1920.jpg"></figure>
+            </div>
+                        <div class="gallery">
+                <figure><img src="img/building-gc2c0f35e2_1920.jpg"></figure>
+                <figure><img src="img/staircase-274614_1920.jpg"></figure>
+                <figure><img src="img/house-1477041.jpg"></figure>
+
+            </div>
+                        <div class="gallery">
+                <figure><img src="img/pedestrians-1853552_1920.jpg"></figure>
+                <figure><img src="img/stained-glass-1589648_1920.jpg"></figure>
+
+                                            <figure><img src="img/buildings-205986_1920.jpg"></figure>
+                <figure><img src="img/surface-945444_1920.jpg"></figure>
+
+            </div>
+
+        </section>
+
+        <div class="control">
+            <button id="button-show" onclick="document.getElementById('my-content').style.display = 'block'">Show Content</button>
+            <button id="button-hide" onclick="document.getElementById('my-content').style.display = 'none'">Hide Content</button>
+        </div>
+
+
+        <div class="mobile-layout">
+            <h2>Mobile Layout</h2>
+            <div class="grid">
+                <div class="column">
+                    <div></div>
+                </div>
+                <div class="column">
+                    <div></div>
+                </div>
+                <div class="column">
+                    <div></div>
+                </div>
+                <div class="column">
+                    <div></div>
+                </div>
+            </div>
+        </div>
+
+        <div class="tablet-layout">
+            <h2>Tablet Layout</h2>
+            <div class="grid">
+                <div class="column">
+                    <div></div>
+                </div>
+                <div class="column">
+                    <div></div>
+                </div>
+                <div class="column">
+                    <div></div>
+                </div>
+                <div class="column">
+                    <div></div>
+                </div>
+                <div class="column">
+                    <div></div>
+                </div>
+                <div class="column">
+                    <div></div>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="desktop-layout">
+            <h2>Desktop Layout</h2>
+            <div class="grid">
+                <div class="column">
+                    <div></div>
+                </div>
+                <div class="column">
+                    <div></div>
+                </div>
+                <div class="column">
+                    <div></div>
+                </div>
+                <div class="column">
+                    <div></div>
+                </div>
+                <div class="column">
+                    <div></div>
+                </div>
+                <div class="column">
+                    <div></div>
+                </div>
+                <div class="column">
+                    <div></div>
+                </div>
+                <div class="column">
+                    <div></div>
+                </div>
+                <div class="column">
+                    <div></div>
+                </div>
+                <div class="column">
+                    <div></div>
+                </div>
+                <div class="column">
+                    <div></div>
+                </div>
+                <div class="column">
+                    <div></div>
+                </div>
+            </div>
+        </div>
+
+
+    </main>
+
+
+</body></html>
